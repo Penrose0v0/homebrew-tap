@@ -12,6 +12,14 @@ cask "eira" do
 
   app "Eira.app"
 
+  # Eira is self-signed (not notarized), so Gatekeeper would block the
+  # quarantined app on first launch. Strip the quarantine flag that Homebrew
+  # applies, so `brew install` just works with no extra flags.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Eira.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/com.eira.app",
     "~/Library/Preferences/com.eira.app.plist",

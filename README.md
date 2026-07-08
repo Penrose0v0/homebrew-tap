@@ -6,25 +6,33 @@ It is built for people who want desktop AI assistance **without** sending their 
 
 Eira currently works best with **Gemma 4 26B A4B**. Other models are still under testing.
 
+## Requirements
+
+- **Apple Silicon** Mac (M1 or newer) — inference runs on-device via MLX
+- **macOS 14 Sonoma** or newer
+
 ## Install
 
 ```bash
-brew install --cask --no-quarantine Penrose0v0/tap/eira
+brew install --cask Penrose0v0/tap/eira
 ```
 
 ## Open
 
-After installation, open Eira from Applications:
+Eira lives in the **menu bar** (there is no Dock icon). After installing, launch it once:
 
 ```bash
 open /Applications/Eira.app
 ```
 
+Then look for the Eira icon in your menu bar.
+
 ## First Run
 
-On first launch, Eira will guide you through onboarding. 
+On first launch, Eira will guide you through onboarding.
 
-Eira requires certain macOS permissions, such as Accessibility or automation access, to understand and act on your local desktop context. These permissions are required for Eira to work.
+- **Permissions** — Eira requests certain macOS permissions (such as Screen Recording, Accessibility, and Input Monitoring) to understand and act on your local desktop context. These are required for Eira to work.
+- **Model download** — Eira downloads its local model (several GB) the first time. This runs once and needs a network connection; after that everything is offline.
 
 The information Eira uses for context is processed locally on your Mac. It is not sent to us or any other developers.
 
@@ -43,6 +51,4 @@ brew uninstall --cask eira
 
 ## Notes
 
-Eira is distributed as a prebuilt macOS app through this tap.
-
-Eira is not currently notarized. The `--no-quarantine` flag is used to avoid macOS Gatekeeper blocking the app during early distribution.
+Eira is distributed as a prebuilt macOS app through this tap, currently not notarized. To keep installation to a single command, the cask removes the Gatekeeper quarantine flag right after install, so the app launches normally. Notarization is planned for a later release.
