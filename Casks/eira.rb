@@ -1,6 +1,6 @@
 cask "eira" do
-  version "0.1.0"
-  sha256 "e2c02df10bb3dd9061b59b071ada14892bbb9b385d7f6ab80bf83ec1d288591b"
+  version "0.1.1"
+  sha256 "ce0fda41f5da97874c91eac7dfa82e45fa73d6c84b4b433fff711b18155d25d5"
 
   url "https://github.com/Penrose0v0/homebrew-tap/releases/download/v#{version}/Eira.zip"
   name "Eira"
